@@ -1,2 +1,2 @@
-# algorithm_c-
-C++ code for some algorithms
+# algorithms
+Codes for some algorithms
