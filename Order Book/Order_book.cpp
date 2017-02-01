@@ -3,7 +3,7 @@
 //
 //  Created by Dongliang Yi on 1/14/17.
 //  Copyright © 2017 Dongliang Yi. All rights reserved.
-//  Thanks to Daniel Cao who provides parts of this code
+//  Thanks to Daniel Cao who provided part of this code
 
 #include <iostream>
 #include <list>
