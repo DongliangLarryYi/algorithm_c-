@@ -1,10 +1,7 @@
-//
 //  main.cpp
 //  check_project
-//
 //  Created by Dongliang Yi on 1/7/17.
 //  Copyright © 2017 Dongliang Yi. All rights reserved.
-//
 
 #include <iostream>
 #include <stack>
@@ -42,7 +39,6 @@ int main() {
             // Process opening bracket, write your code here
             Bracket new_data(next,position);
             opening_brackets_stack.push(new_data);
-            
         }
         
         if (next == ')' || next == ']' || next == '}') {
@@ -61,7 +57,6 @@ int main() {
                     opening_brackets_stack.push(new_data);
                     position = text.length();
                 }
-                
             }
         }
     }
@@ -75,8 +70,5 @@ int main() {
         Bracket top(opening_brackets_stack.top());
         std::cout << top.position + 1 <<std::endl;
     }
-    
-    
-    
     return 0;
 }
