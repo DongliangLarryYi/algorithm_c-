@@ -1,10 +1,7 @@
-//
 //  main.cpp
 //  merging_tables
-//
 //  Created by Dongliang Yi on 1/22/17.
 //  Copyright © 2017 Dongliang Yi. All rights reserved.
-//
 
 #include <cstdio>
 #include <cstdlib>
@@ -20,7 +17,6 @@ using std::vector;
 
 struct DisjointSetsElement {
     int size, parent, rank;
-    
     DisjointSetsElement(int size = 0, int parent = -1, int rank = 0):
     size(size), parent(parent), rank(rank) {}
 };
@@ -29,7 +25,6 @@ struct DisjointSets {
     int size;
     int max_table_size;
     vector <DisjointSetsElement> sets;
-    
     DisjointSets(int size): size(size), max_table_size(0), sets(size) {
         for (int i = 0; i < size; i++)
             sets[i].parent = i;
@@ -41,11 +36,8 @@ struct DisjointSets {
         while(index_table != sets[index_table].parent)
         {
             index_table = sets[index_table].parent;
-        
         }
-        
         return index_table;
-        
     }
     
     void merge(int destination, int source) {
@@ -58,7 +50,6 @@ struct DisjointSets {
             
             int Des_id = getParent(realDestination);
             int Sou_id = getParent(realSource);
-            
             int sum_size = 0;
             
             if(Des_id == Sou_id)
@@ -69,7 +60,6 @@ struct DisjointSets {
                 sets[Sou_id].parent = Des_id;
                 sum_size = sets[Des_id].size + sets[Sou_id].size;
                 sets[Des_id].size = sum_size;
-            
             }
             else{
                 sets[Des_id].parent = Sou_id;
@@ -77,17 +67,10 @@ struct DisjointSets {
                 sets[Sou_id].size = sum_size;
                 if(sets[Des_id].rank == sets[Sou_id].rank)
                     sets[Sou_id].rank += 1;
-            
             }
                 if(sum_size > max_table_size)
                     max_table_size = sum_size;
-                
-            
             }
-            
-            
-            
-            
         }
     }
 };
@@ -95,7 +78,6 @@ struct DisjointSets {
 int main() {
     int n, m;
     cin >> n >> m;
-    
     DisjointSets tables(n);
     for (auto &table : tables.sets) {
         cin >> table.size; //each table's size
@@ -108,10 +90,8 @@ int main() {
         // get the real index of the address
         --destination;
         --source;
-        
         tables.merge(destination, source);
         cout << tables.max_table_size << endl;
     }
-    
     return 0;
 }
