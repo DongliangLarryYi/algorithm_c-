@@ -1,6 +1,5 @@
 
 //  Order_book
-//
 //  Created by Dongliang Yi on 1/14/17.
 //  Copyright © 2017 Dongliang Yi. All rights reserved.
 //  Thanks to Daniel Cao who provided part of this code
@@ -191,7 +190,6 @@ public:
         else // try to find the same level
         {
             
-
             bool found = false;
             OrderSameLevel neworderlevel(side,price);
             for (std::list<OrderSameLevel>::iterator it = book.begin();it != book.end();)
@@ -203,7 +201,6 @@ public:
                     break;
                 }
                 else it++;
-                
             }
             
             if (found == false) //if there is now existing price level, create one
@@ -211,7 +208,6 @@ public:
                 bool add_before_end = false;
                 for (std::list<OrderSameLevel>::iterator it = book.begin();it != book.end();)
                 {
-                    
                     if(it->getPrice() > neworderlevel.getPrice())
                     {
                         book.insert(it, neworderlevel);//the price is increasingly sorted
@@ -221,7 +217,6 @@ public:
                         add_before_end = true;
                         break;
                     }
-                    
                     else
                     {
                         it++;
@@ -233,16 +228,12 @@ public:
                     book.back().addToLevel(order1);
                     depth++;
                 }
-                
             }
-            
         }
-        
     }
     
     void remove (int order_id)
     {
-        
         double price_level_to_go = array_of_id[order_id];
         if (price_level_to_go > 0)
         {
@@ -252,18 +243,15 @@ public:
                 {
                     it->cancelFromLevel(order_id);
                     break;
-                    
                 }
                 else it++;
             }
         }
-        
     }
     
     void modify(int order_id, int new_size)
     {
         double price_level_to_go = array_of_id[order_id];
-        
         if (price_level_to_go > 0)
         {
             for (std::list<OrderSameLevel>::iterator it = book.begin();it != book.end();)
@@ -272,12 +260,10 @@ public:
                 {
                     it->updateSingleOrderSize(order_id,new_size);
                     break;
-                    
                 }
                 else it++;
             }
         }
-        
     }
     
     int getDepth()
@@ -342,15 +328,12 @@ public:
             cout <<it_end->getSize()<<endl;
             return it_end->getSize();
         }
-        
     }
-    
 };
 
 int main (int argc, const char * argv[])
 {
     OrderBook sell, buy;
-    
     // if input file through terminal
     //ifstream input_file(argv[1]);
     ifstream input_file("/Users/Larry/Documents/CPP_Code/compiled/Debug/order_data1.txt");
@@ -379,7 +362,6 @@ int main (int argc, const char * argv[])
             else
                 buy.add(id , side, price, size);
         }
-        
         if (od_name == "modify") {//if it is a modify
             input_file >> id;
             input_file >> size;
@@ -422,5 +404,4 @@ int main (int argc, const char * argv[])
         }
     }
     return 0;
-
 }
