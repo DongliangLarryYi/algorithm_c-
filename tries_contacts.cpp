@@ -65,9 +65,7 @@ public:
 int main(){
     int n;
     cin >> n;
-    
     Trie Contact;
-    
     for(int a0 = 0; a0 < n; a0++){
         string op;
         string contact;
@@ -79,8 +77,6 @@ int main(){
       } else {
         cout << Contact.find(contact) << endl;
       }
-        
-        
     }
     return 0;
 }
