@@ -1,8 +1,6 @@
 //  Fibonacci
-//
 //  Created by Dongliang Yi on 9/21/16.
 //  Copyright © 2016 Dongliang Yi. All rights reserved.
-//
 
 #include <iostream>
 
