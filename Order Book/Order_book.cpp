@@ -1,4 +1,3 @@
-
 //  Order_book
 //  Created by Dongliang Yi on 1/14/17.
 //  Copyright © 2017 Dongliang Yi. All rights reserved.
@@ -155,9 +154,7 @@ public:
     {
         return this->side;
     }
-
 };
-
 
 class OrderBook{
     
@@ -298,7 +295,6 @@ public:
             cout <<it_end->getPrice()<<endl;
             return it_end->getPrice();
         }
-
     }
     
     int get_size(int level)
